@@ -3,13 +3,13 @@ package advent_of_code_2022.day1
 import advent_of_code_2022.Common
 
 
-val A = object : Day1Interface {
+val Day1A = object : Day1Interface {
     override fun run(input: String) = calculateElvesCalories(input)
         .maxOrNull() !!
         .toString()
 }
 
-val B = object : Day1Interface {
+val Day1B = object : Day1Interface {
     override fun run(input: String) = calculateElvesCalories(input)
         .sortedDescending()
         .slice(0 until 3)

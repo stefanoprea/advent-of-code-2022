@@ -2,7 +2,12 @@ package advent_of_code_2022
 
 
 interface Common : () -> Unit {
-    abstract fun getInput() : String
+    override operator fun invoke() = println(calculateResult())
+
+    fun calculateResult() = run(getInput())
+
     abstract fun run(input: String) : String
-    override operator fun invoke() = println(run(getInput()))
+
+
+    abstract fun getInput() : String
 }

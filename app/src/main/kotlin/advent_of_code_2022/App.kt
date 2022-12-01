@@ -3,7 +3,7 @@
  */
 package advent_of_code_2022
 
-import advent_of_code_2022.day1
+import advent_of_code_2022.day1.*
 
 fun getEnvVar(key: String) = System.getenv(key) ?: exitWithMessage("Please set env var $key")
 
@@ -25,8 +25,8 @@ class Commands(val commandTypeName: String) : HashMap<String, () -> Unit>() {
 }
 
 val commands = Commands("Day")
-    .register("1", day1.A)
-    .register("1B", day1.B)
+    .register("1A", Day1A)
+    .register("1B", Day1B)
 
 fun main() {
     val day = getEnvVar("DAY")
