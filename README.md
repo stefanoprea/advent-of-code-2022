@@ -1,14 +1,8 @@
 ## Stefan Oprea's Advent of Code 2022 Kotlin repo
 
-Run like:
-```bash
-DAY=1A ./gradlew run 
-DAY=1B ./gradlew run
-```
-
 Run the test suite:
 ```bash
-./gradlew test
+./gradlew test -i
 ```
 
  - [Advent of Code](https://adventofcode.com/)

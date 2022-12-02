@@ -1,0 +1,34 @@
+package advent_of_code_2022.day3
+
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import advent_of_code_2022.Days
+
+
+class MyTest {
+    val day = "3"
+
+    @Test
+    fun A() {
+        assertEquals(
+            "",
+            Days.runCommand(day) {
+                it
+                    .split("\n")
+                    .first()
+            },
+        )
+    }
+
+    @Test
+    fun B() {
+        assertEquals(
+            "",
+            Days.runCommand(day) {
+                it
+                    .split("\n")
+                    .first()
+            },
+        )
+    }
+}
