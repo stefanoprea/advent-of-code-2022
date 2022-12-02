@@ -1,37 +1,23 @@
 package advent_of_code_2022.day1
 
-import advent_of_code_2022.Common
+import advent_of_code_2022.Days
+import advent_of_code_2022.calculate
 
 
-val Day1A = object : Day1Interface {
-    override fun run(input: String) = calculateElvesCalories(input)
-        .maxOrNull() !!
-        .toString()
-}
+val day1A = { day1(1) }
 
-val Day1B = object : Day1Interface {
-    override fun run(input: String) = calculateElvesCalories(input)
-        .sortedDescending()
-        .slice(0 until 3)
-        .sum()
-        .toString()
-}
+val day1B = { day1(3) }
 
-interface Day1Interface : Common {
-    override fun getInput() = input
-
-    fun calculateElvesCalories(input: String) = input
+fun day1(noOfElves: Int) = calculate(inputDay1) {
+    it.trim()
         .split("\n\n")
         .map {
             it.split("\n")
-                .map { it.trim() }
-                .filter { !it.isEmpty() }
                 .map { it.toInt() }
                 .sum()
         }
-        .also {
-            if (it.size == 0) {
-                throw Exception("Elves list is empty")
-            }
-        }
+        .sortedDescending()
+        .take(noOfElves)
+        .sum()
+        .toString()
 }

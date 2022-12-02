@@ -1,7 +1,7 @@
 package advent_of_code_2022.day1
 
 
-val input = """
+val inputDay1 = """
 5794
 5879
 4899

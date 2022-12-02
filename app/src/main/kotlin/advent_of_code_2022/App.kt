@@ -12,23 +12,31 @@ fun exitWithMessage(message: String) : Nothing {
     kotlin.system.exitProcess(1)
 }
 
-class Commands(val commandTypeName: String) : HashMap<String, () -> Unit>() {
-    fun runCommand(key: String) =
-        when (val command = this.get(key)) {
-            null -> exitWithMessage("$commandTypeName must be one of: ${this.keys.joinToString()}")
-            else -> command()
+fun calculate(input: String, f: (String) -> String) = f(input)
+
+class Days {
+    companion object :  HashMap<String, () -> String>() {
+        fun runCommand(key: String) =
+            when (val command = this.get(key)) {
+                null -> exitWithMessage("Days must be one of: ${this.keys.joinToString()}")
+                else -> command()
+            }
+
+        fun register(key: String, value: () -> String) = apply {
+            this[key] = value
         }
 
-    fun register(key: String, value: () -> Unit) = apply {
-        this[key] = value
+        init {
+            Days
+                .register("1A", day1A)
+                .register("1B", day1B)
+        }
     }
 }
 
-val commands = Commands("Day")
-    .register("1A", Day1A)
-    .register("1B", Day1B)
+
 
 fun main() {
     val day = getEnvVar("DAY")
-    commands.runCommand(day)
+    println(Days.runCommand(day))
 }
