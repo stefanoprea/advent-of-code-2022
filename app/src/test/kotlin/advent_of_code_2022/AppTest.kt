@@ -11,6 +11,8 @@ class AppTest {
             "1B" to "200116",
             "2A" to "11666",
             "2B" to "12767",
+            "3A" to "",
+            "3B" to "",
         ).forEach {(k, v) ->
             assertEquals(v, Days.runCommand(k))
         }
