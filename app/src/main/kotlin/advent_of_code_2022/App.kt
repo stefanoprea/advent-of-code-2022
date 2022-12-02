@@ -4,6 +4,7 @@
 package advent_of_code_2022
 
 import advent_of_code_2022.day1.*
+import advent_of_code_2022.day2.*
 
 fun getEnvVar(key: String) = System.getenv(key) ?: exitWithMessage("Please set env var $key")
 
@@ -30,6 +31,8 @@ class Days {
             Days
                 .register("1A", day1A)
                 .register("1B", day1B)
+                .register("2A", day2A)
+                .register("2B", day2B)
         }
     }
 }

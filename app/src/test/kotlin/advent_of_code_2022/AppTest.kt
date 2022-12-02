@@ -9,6 +9,8 @@ class AppTest {
         mapOf(
             "1A" to "67016",
             "1B" to "200116",
+            "2A" to "11666",
+            "2B" to "12767",
         ).forEach {(k, v) ->
             assertEquals(v, Days.runCommand(k))
         }
