@@ -3,8 +3,7 @@
  */
 package advent_of_code_2022
 
-import advent_of_code_2022.day1.*
-import advent_of_code_2022.day2.*
+import java.io.File
 
 fun getEnvVar(key: String) = System.getenv(key) ?: exitWithMessage("Please set env var $key")
 
@@ -13,17 +12,21 @@ fun exitWithMessage(message: String) : Nothing {
     kotlin.system.exitProcess(1)
 }
 
-fun calculate(input: String, f: (String) -> String) = f(input)
-
 class Days {
-    companion object :  HashMap<String, () -> String>() {
-        fun runCommand(key: String) =
-            when (val command = this.get(key)) {
-                null -> exitWithMessage("Days must be one of: ${this.keys.joinToString()}")
-                else -> command()
-            }
+    companion object :  HashMap<String, (String) -> String>() {
+        fun runCommand(key: String) : String {
+            val command = this.get(key) ?: exitWithMessage("Days must be one of: ${this.keys.joinToString()}")
+            val filename = makeFilename(key)
+            val input = readInput(filename)
+            return command(input)
+        }
 
-        fun register(key: String, value: () -> String) = apply {
+        private fun makeFilename(key: String) = "[^0-9]+$".toRegex().replace(key, "")
+
+        private fun readInput(name: String) = File("src/input", "$name.txt")
+            .readText()
+
+        fun register(key: String, value: (String) -> String) = apply {
             this[key] = value
         }
 

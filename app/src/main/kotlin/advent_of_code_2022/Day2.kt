@@ -1,9 +1,7 @@
-package advent_of_code_2022.day2
-
-import advent_of_code_2022.calculate
+package advent_of_code_2022
 
 
-val day2A = { calculate(input) {
+val day2A = { it: String ->
     it
         .trim()
         .replace("X", "A")
@@ -19,9 +17,9 @@ val day2A = { calculate(input) {
         }
         .sum()
         .toString()
-}}
+}
 
-val day2B = { calculate(input) {
+val day2B = { it: String ->
     it
         .trim()
         .lines()
@@ -48,7 +46,7 @@ val day2B = { calculate(input) {
         }
         .sum()
         .toString()
-}}
+}
 
 fun score(elf: String, me: String) = fistPoints(me) + battlePoints(elf, me)
 

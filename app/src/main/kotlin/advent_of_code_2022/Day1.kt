@@ -1,14 +1,11 @@
-package advent_of_code_2022.day1
-
-import advent_of_code_2022.Days
-import advent_of_code_2022.calculate
+package advent_of_code_2022
 
 
-val day1A = { day1(1) }
+val day1A = day1(1)
 
-val day1B = { day1(3) }
+val day1B = day1(3)
 
-fun day1(noOfElves: Int) = calculate(inputDay1) {
+fun day1(noOfElves: Int) = { it: String ->
     it.trim()
         .split("\n\n")
         .map {
