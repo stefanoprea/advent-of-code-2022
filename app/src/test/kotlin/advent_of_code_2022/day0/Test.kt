@@ -14,7 +14,7 @@ class MyTest {
             "",
             Days.runCommand(day) {
                 it
-                    .split("\n")
+                    .lines()
                     .first()
             },
         )
@@ -26,7 +26,7 @@ class MyTest {
             "",
             Days.runCommand(day) {
                 it
-                    .split("\n")
+                    .lines()
                     .first()
             },
         )
